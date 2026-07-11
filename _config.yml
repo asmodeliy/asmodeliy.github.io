@@ -1,0 +1,18 @@
+title: 이상원 — Product Engineer
+description: 설계 → 공정 → 패키지 → 검증 → 품질, 제품 전 흐름을 잇는 Product Engineer 이상원의 포트폴리오와 코딩 로그.
+url: "https://asmodeliy.github.io"
+baseurl: ""
+lang: ko
+author:
+  name: Lee Sang-won
+    email: rillerosion@gmail.com
+      github: asmodeliy
+
+      permalink: /log/:year/:month/:day/:title/
+      markdown: kramdown
+      timezone: Asia/Seoul
+
+      exclude:
+        - README.md
+          - Gemfile
+            - Gemfile.lock
