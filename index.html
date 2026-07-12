@@ -1,0 +1,182 @@
+---
+layout: default
+---
+
+<div class="hero" id="overview">
+    <div>
+          <p class="lead">반도체 공정 전공으로 소자와 제조를 배우고, Verilog 기반 디지털 설계·검증을 거쳐, 품질 엔지니어로서 테스트·신뢰성 검증·Failure Analysis·패키지·측정 자동화를 수행합니다. 불량과 특성 이슈를 단편이 아니라 제품 전체 흐름 위에서 Root Cause까지 추적합니다.</p>p>
+          <div class="features">
+                  <h3>Features</h3>
+                <ul>
+                          <li>Failure Analysis — 물리분석 기반 Root Cause 규명과 개선·재검증까지 완결 <code>X-ray · EMMI · C-SAM · Decap</code></li>
+                        <li>JEDEC 기반 신뢰성 시험 기획·운영 <code>HTOL · HBM · CDM · Latch-up</code></li>
+                        <li>Package Engineering — FCBGA·Underfill·Bump 구조 이해 기반 분석</li>
+                        <li>측정·품질 자동화 <code>LabVIEW · Python · Rust · 로컬 LLM/RAG</code></li>
+                        <li>기능안전 — ISO 26262 인증 체계 구축, 영어 외부 심사 대응</li>
+                </ul>
+          </div>
+    </div>
+  <figure class="scope" aria-label="아이 다이어그램 일러스트">
+      <svg viewBox="0 0 420 260" role="img" aria-label="고속 인터페이스 신호의 아이 다이어그램">
+            <defs>
+                      <pattern id="grat" width="42" height="26" patternUnits="userSpaceOnUse">
+                                  <path d="M42 0H0V26" fill="none" stroke="#E5EAEE" stroke-width="1"/>
+                      </pattern>pattern>
+            </defs>
+              <rect width="420" height="260" fill="url(#grat)"/>
+              <line x1="0" y1="130" x2="420" y2="130" stroke="#D2D9DF" stroke-width="1" stroke-dasharray="4 4"/>
+              <line x1="210" y1="0" x2="210" y2="260" stroke="#D2D9DF" stroke-width="1" stroke-dasharray="4 4"/>
+              <path class="eye-trace" d="M0,50 C120,50 90,210 210,210 C330,210 300,50 420,50" fill="none" stroke="#1E56A0" stroke-width="2" opacity=".85"/>
+              <path class="eye-trace" d="M0,210 C120,210 90,50 210,50 C330,50 300,210 420,210" fill="none" stroke="#1E56A0" stroke-width="2" opacity=".85"/>
+              <path class="eye-trace" d="M0,62 C118,66 96,198 210,198 C324,198 302,66 420,62" fill="none" stroke="#0E7C66" stroke-width="1.6" opacity=".7"/>
+              <path class="eye-trace" d="M0,198 C118,194 96,66 210,66 C324,66 302,194 420,198" fill="none" stroke="#0E7C66" stroke-width="1.6" opacity=".7"/>
+              <rect x="168" y="112" width="84" height="36" fill="none" stroke="#B23A2E" stroke-width="1.4" stroke-dasharray="5 4"/>
+              <text x="216" y="106" font-family="IBM Plex Mono, monospace" font-size="10" fill="#B23A2E">EYE MASK</text>text>
+      </svg>svg>
+        <figcaption>Fig. 1 — Eye Diagram, 고속 인터페이스 특성 측정</figcaption>
+  </figure>figure>
+</div>
+
+<section id="path">
+  <div class="sec-head"><span class="num">2</span>span><h2>경력 흐름</h2><span class="en">Signal Path</span>span></div>
+  <div class="chain" aria-label="경력 경로">
+      <div class="node"><b>공정</b><span>반도체 공정 전공<br>소자·제조</span></div>
+      <div class="arrow">→</div>
+      <div class="node"><b>설계·검증</b><span>IDEC · Verilog<br>디지털 설계</span></div>
+      <div class="arrow">→</div>
+      <div class="node"><b>제품 검증</b><span>테스트 칩<br>특성 평가</span></div>
+      <div class="arrow">→</div>
+      <div class="node"><b>신뢰성</b><span>JEDEC 시험<br>기획·운영</span></div>
+      <div class="arrow">→</div>
+      <div class="node"><b>Package</b><span>FCBGA<br>기판·조립 협업</span></div>
+      <div class="arrow">→</div>
+      <div class="node"><b>FA</b><span>Root Cause<br>규명·개선</span></div>
+      <div class="arrow">→</div>
+      <div class="node"><b>자동화</b><span>측정·품질<br>SW 구축</span></div>
+  </div>
+  <p class="chain-note">고속 인터페이스 IP 팹리스에서 테이프아웃 이후 전 과정 — 패키지 협의, 특성 평가, 신뢰성 시험, QA 리포트 — 를 담당하며, 설계·공정·패키지·검증·품질을 하나의 흐름으로 다뤄 왔습니다.</p>p>
+</section>section>
+
+<section id="projects">
+  <div class="sec-head"><span class="num">3</span><h2>프로젝트</h2><span class="en">Case Studies</span></div>
+
+  <article class="proj">
+      <div class="proj-head"><span class="pid">CASE 01</span><h3>Failure Analysis — 테스트 칩 HTOL 신뢰성 불량</h3><span class="stack">JEDEC · X-ray · EMMI · C-SAM · Package</span></div>
+      <div class="proj-body">
+            <p>FCBGA 테스트 칩 HTOL 시험 중 Readout이 누적될수록 단락성 불량이 늘어나는 구조적 신뢰성 이슈가 발생. 데이터 기반 배제법으로 설계와 보드를 순차 배제하고, 물리분석으로 패키지 Underfill 기인 Solder Extrusion을 Root Cause로 규명했습니다.</p>
+            <div class="flow">HTOL Fail 분류 → 설계 Review <b>배제</b> → 보드 Review <b>배제</b> → X-ray 이상점 검출 → EMMI Hot Spot → Decap → 물리분석 → <i>Solder Extrusion → 인접 Ball Short</i></div>
+            <p>소재 물성(CTE·Modulus·Tg) 비교로 Underfill 대체재를 선정하고, C-SAM 사전 검증과 소재 Qualification을 거쳐 동일 조건 후속 시험 Pass로 개선을 검증 — 재발 없이 종결했습니다.</p>
+            <div class="kv"><span>Root Cause 규명</span><span>소재 물성 기반 의사결정</span><span>재검증 Pass · 재발 0</span></div>
+      </div>
+  </article>article>
+
+  <article class="proj">
+      <div class="proj-head"><span class="pid">CASE 02</span><h3>LabVIEW 계측 자동화 — PVT Corner 측정</h3><span class="stack">LabVIEW · FPGA · VISA · FSM</span></div>
+      <div class="proj-body">
+            <p>측정 전담팀 없이 수작업으로 운용되던 특성 측정을 직접 제안·도입한 자동화로 해결. 온도조절기·오실로스코프·FPGA·Power Supply를 하나의 SW로 통합 제어하고, FSM 기반 온도·전원 제어 로직으로 PVT Corner 전 구간을 자동 순차 측정합니다.</p>
+            <div class="flow">WRITE_VECTOR → 온도·전원 세팅 → 측정 → 기록 → 다음 Corner <i>(자동 반복 · 리포트 생성)</i></div>
+            <div class="kv"><span>측정 시간 3배 이상 단축</span><span>재현성·추적성 확보</span><span>인적 오류 제거</span></div>
+      </div>
+  </article>article>
+
+  <article class="proj">
+      <div class="proj-head"><span class="pid">CASE 03</span><h3>QMS — Quality Control Hub</h3><span class="stack">Python · Rust · 로컬 LLM/RAG · Podman</span></div>
+      <div class="proj-body">
+            <p>이슈·스펙·문서가 흩어져 현황 파악이 어려웠던 개발부서를 위해, 클라우드를 쓸 수 없는 폐쇄망·root 권한 없는 서버라는 제약 위에 인프라부터 AI 기능까지 풀스택 품질 플랫폼을 구축했습니다.</p>
+            <p>Podman rootless 컨테이너로 전 개발부서 대상 서비스를 안정 운영하고, llama.cpp 기반 로컬 LLM과 사내 문서 벡터 DB를 결합한 출처 기반 RAG 검색, Document Studio, APQP 자동화를 구현했습니다. 성능이 필요한 Register 엔진 백엔드는 Python에서 Rust로 마이그레이션했습니다.</p>
+            <div class="kv"><span>프로젝트·이슈·스펙 통합</span><span>로컬 LLM + RAG</span><span>APQP 자동화</span><span>Rust 마이그레이션</span></div>
+      </div>
+  </article>article>
+
+  <article class="proj">
+      <div class="proj-head"><span class="pid">CASE 04</span><h3>DQV Sign-off Hub — IP 출하 정합성 검증</h3><span class="stack">Flask · Python · Rule Deck</span></div>
+      <div class="proj-body">
+            <p>IP를 고객에 release할 때 문서·Front-end·Back-end 간 정합성 오류가 잦았던 문제를, 출하 전 자동으로 잡아내는 사인오프 리뷰 툴로 해결했습니다. 파운드리 표준 필수 룰을 도메인별 checker(Verilog·LEF·Liberty·DRC·LVS·datasheet 등)에 매핑한 Traceability Matrix를 구축하고, IP 등록 → 검증 Job 실행 → 웹 리포트로 이어지는 파이프라인을 구현했습니다.</p>
+            <div class="kv"><span>룰 ↔ Checker Traceability</span><span>출하 전 자동 정합성 검증</span><span>대시보드·리포트</span></div>
+      </div>
+  </article>article>
+
+  <article class="proj">
+      <div class="proj-head"><span class="pid">CASE 05</span><h3>ISO 26262 기능안전 인증 체계 구축</h3><span class="stack">FMEDA · DFA · Safety Case/GSN · Jira</span></div>
+      <div class="proj-body">
+            <p>기능안전 인증 체계를 초기부터 구축했습니다. ISO 26262 Part 2/5/8/9에 Part 11 반도체 가이드를 적용하고, Permanent/Transient FIT를 분리한 FMEDA, DFA, GSN 기반 Safety Case, Tool Qualification, Jira 기반 요구사항 추적성을 수립했으며 외부 인증기관 심사를 영어로 대응했습니다.</p>
+            <div class="kv"><span>ISO 26262 Part 2/5/8/9/11</span><span>FMEDA · FIT 분석</span><span>영어 심사 대응</span></div>
+      </div>
+  </article>article>
+</section>section>
+
+<section id="char">
+  <div class="sec-head"><span class="num">4</span><h2>역량</h2><span class="en">Characteristics</span></div>
+  <table class="char">
+      <thead><tr><th>Parameter</th><th>Description</th><th>Conditions</th></tr></thead>
+      <tbody>
+              <tr><td>Reliability / FA</td><td>JEDEC 기반 HTOL·HBM·CDM·Latch-up 시험 기획, X-ray·EMMI·C-SAM·Decap 물리분석, Root Cause 규명·개선·재검증</td><td>MPW / FCBGA</td></tr>
+        <tr><td>Functional Safety</td>td><td>ISO 26262 인증 체계 구축, FMEDA·DFA·Safety Case, Tool Qualification</td>td><td>Part 2/5/8/9/11</td>td></tr>
+        <tr><td>Test Automation</td><td>LabVIEW 계측 통합 제어, PVT Corner 자동 측정, 데이터 수집·리포트 자동화</td><td>VISA / FPGA</td></tr>
+        <tr><td>Software</td>td><td>Python·Rust 풀스택, Flask, 컨테이너 배포(Podman rootless), 로컬 LLM·RAG 구축</td>td><td>Closed network</td>td></tr>
+        <tr><td>Design / Verification</td><td>Verilog 디지털 설계·검증 교육 이수(IDEC), IP deliverable 정합성 검증 툴 개발</td><td>—</td></tr>
+        <tr><td>Language</td>td><td>영어 실무 사용 — 외부 인증 심사 영어 대응, 기술 문서 작성</td>td><td>Working proficiency</td>td></tr>
+      </tbody>
+  </table>table>
+</section>section>
+
+<section id="github">
+  <div class="sec-head"><span class="num">5</span><h2>코딩 활동</h2><span class="en">Coding Log</span></div>
+
+  <div class="repo-grid">
+      <a class="repo" href="https://github.com/asmodeliy/QMS_Merge">
+            <h3>QMS_Merge <span class="badge private">private</span></h3>
+            <p>사내 품질관리 플랫폼(Quality Control Hub) 코드베이스. Python/Rust 백엔드, 로컬 LLM·RAG, 모듈 통합.</p>
+            <div class="meta"><span>Python · Rust</span></div>
+      </a>a>
+      <a class="repo" href="https://github.com/asmodeliy/tgz_analysis">
+            <h3>tgz_analysis <span class="badge private">private</span></h3>
+            <p>압축 아카이브(.tgz) 기반 로그·데이터 자동 분석 도구.</p>
+            <div class="meta"><span>Python</span></div>
+      </a>a>
+      <a class="repo" href="https://github.com/asmodeliy/1st">
+            <h3>1st <span class="badge private">private</span></h3>
+            <p>초기 실험·연습용 저장소.</p>
+            <div class="meta"><span>—</span></div>
+      </a>a>
+  </div>
+
+  <p class="gh-note">위 저장소는 현재 비공개입니다. 공개로 전환된 저장소는 아래 목록에 자동으로 표시됩니다.</p>
+
+  <div id="gh-live"><div class="empty">공개 저장소 불러오는 중…</div></div>
+
+  <figure class="contrib">
+      <img src="https://ghchart.rshah.org/1E56A0/asmodeliy" alt="GitHub contribution graph" loading="lazy" onerror="this.parentElement.style.display='none'">
+      <figcaption>Fig. 2 — Contribution graph, github.com/asmodeliy</figcaption>
+  </figure>figure>
+</section>section>
+
+<section id="log-preview">
+  <div class="sec-head"><span class="num">6</span><h2>최근 로그</h2><span class="en">Revision History</span></div>
+  {% if site.posts.size > 0 %}
+  <table class="revlog">
+      <thead><tr><th>Rev</th><th>Date</th><th>Title</th></tr></thead>
+      <tbody>
+              {% for post in site.posts limit:5 %}
+              <tr>
+                        <td class="rev">{{ post.date | date: "%y%m%d" }}</td>td>
+                        <td class="date">{{ post.date | date: "%Y-%m-%d" }}</td>td>
+                        <td><a href="{{ post.url | relative_url }}">{{ post.title }}</a>a>
+                                  {% if post.tags.size > 0 %}<span class="tags"> · {{ post.tags | join: ", " }}</span>span>{% endif %}</td>
+              </tr>
+        {% endfor %}
+      </tbody>
+  </table>table>
+  <p style="margin-top:14px;font-family:var(--mono);font-size:13px"><a href="{{ '/log/' | relative_url }}">전체 로그 보기 →</a>a></p>
+  {% else %}
+  <p style="font-family:var(--mono);font-size:13px;color:var(--ink-soft)">아직 기록이 없습니다.</p>
+  {% endif %}
+</section>section>
+
+<script src="{{ '/assets/js/github.js' | relative_url }}"></script></td>
+              </tr>
+      </tbody></th></th></tr></p></p></tr></td></td></tr></tr></td></td></tr></tr></td></td></tr>
+      </tbody></th></th></tr></thead></p></p></i></i></p></span></span></b></figcaption>
+            </defs></code></li></li></code></code></li>
+                </ul></h3>
+    </div>
