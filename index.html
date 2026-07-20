@@ -1,307 +1,65 @@
 <!doctype html>
 <html lang="ko">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="이상원 Technical Product Manager 포트폴리오 — 기술 요구사항을 제품 계획으로 전환하고 HW·SW·검증·품질 조직의 실행을 연결합니다." />
-  <meta name="theme-color" content="#0b1220" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="이상원 Technical Product Manager 포트폴리오. 반도체 설계·공정·패키지·검증·품질과 소프트웨어 자동화를 연결합니다.">
+  <meta name="theme-color" content="#08192f">
   <title>이상원 | Technical Product Manager Portfolio</title>
   <style>
-    :root {
-      --bg: #f6f7f9;
-      --paper: #ffffff;
-      --ink: #172033;
-      --muted: #667085;
-      --line: #e4e7ec;
-      --navy: #0b3b75;
-      --blue: #175cd3;
-      --blue-soft: #eff6ff;
-      --green: #067647;
-      --green-soft: #ecfdf3;
-      --amber: #b54708;
-      --amber-soft: #fffaeb;
-      --shadow: 0 18px 48px rgba(16, 24, 40, .08);
-      --radius: 18px;
+    :root{
+      --bg:#f4f7fb;--paper:#fff;--ink:#122033;--muted:#657387;--line:#dfe6ef;
+      --navy:#0d315f;--blue:#1769d2;--blue2:#4a90e2;--cyan:#20a4a6;
+      --soft:#eef5ff;--green:#087b60;--green-soft:#ebfaf5;--shadow:0 18px 55px rgba(19,43,75,.09);
+      --radius:20px;
     }
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      background: var(--bg);
-      color: var(--ink);
-      font-family: Inter, Pretendard, -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans KR", sans-serif;
-      line-height: 1.72;
-      word-break: keep-all;
-    }
-    a { color: inherit; }
-    a:focus-visible { outline: 3px solid rgba(23, 92, 211, .35); outline-offset: 4px; border-radius: 6px; }
-    .wrap { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
-    .topbar {
-      position: sticky; top: 0; z-index: 20;
-      border-bottom: 1px solid rgba(228,231,236,.86);
-      background: rgba(255,255,255,.88);
-      backdrop-filter: blur(16px);
-    }
-    .topbar .inner { height: 68px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
-    .brand { font-weight: 800; letter-spacing: -.03em; text-decoration: none; }
-    .brand span { color: var(--blue); }
-    nav { display: flex; gap: 20px; font-size: 14px; color: var(--muted); }
-    nav a { text-decoration: none; }
-    nav a:hover { color: var(--blue); }
-    .hero {
-      color: #fff;
-      background:
-        radial-gradient(circle at 85% 16%, rgba(47, 128, 237, .32), transparent 34%),
-        radial-gradient(circle at 8% 88%, rgba(18, 183, 106, .18), transparent 34%),
-        linear-gradient(135deg, #081525 0%, #0b2f5f 54%, #0b3b75 100%);
-      padding: 88px 0 72px;
-    }
-    .hero-grid { display: grid; grid-template-columns: 1.2fr .8fr; gap: 64px; align-items: center; }
-    .eyebrow { margin: 0 0 16px; color: #b9d6ff; font-size: 13px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
-    h1 { margin: 0; font-size: clamp(42px, 6vw, 72px); line-height: 1.08; letter-spacing: -.055em; }
-    h1 small { display: block; margin-top: 14px; color: #dbeafe; font-size: clamp(20px, 2.6vw, 31px); font-weight: 600; letter-spacing: -.03em; }
-    .hero-copy { max-width: 760px; margin: 28px 0 0; color: #d0d9e8; font-size: 18px; }
-    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
-    .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 46px; padding: 0 18px; border-radius: 10px; font-weight: 700; text-decoration: none; }
-    .btn.primary { background: #fff; color: var(--navy); }
-    .btn.secondary { border: 1px solid rgba(255,255,255,.32); color: #fff; background: rgba(255,255,255,.06); }
-    .signal-card { border: 1px solid rgba(255,255,255,.16); border-radius: 22px; padding: 22px; background: rgba(255,255,255,.07); box-shadow: 0 18px 55px rgba(0,0,0,.18); }
-    .signal-card svg { display: block; width: 100%; height: auto; }
-    .signal-card figcaption { margin-top: 14px; color: #b9c8dc; font-size: 12px; text-align: center; letter-spacing: .04em; }
-    .metrics { margin-top: -32px; position: relative; z-index: 2; }
-    .metrics-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 14px; }
-    .metric { padding: 22px; border: 1px solid var(--line); border-radius: 15px; background: var(--paper); box-shadow: var(--shadow); }
-    .metric strong { display: block; color: var(--navy); font-size: 30px; line-height: 1.2; letter-spacing: -.04em; }
-    .metric span { display: block; margin-top: 6px; color: var(--muted); font-size: 13px; }
-    main section { padding: 84px 0; }
-    main section + section { border-top: 1px solid var(--line); }
-    .section-head { display: grid; grid-template-columns: .55fr 1.45fr; gap: 40px; margin-bottom: 36px; align-items: start; }
-    .kicker { margin: 0; color: var(--blue); font-size: 13px; font-weight: 800; letter-spacing: .11em; text-transform: uppercase; }
-    h2 { margin: 6px 0 0; font-size: clamp(30px, 4vw, 44px); line-height: 1.18; letter-spacing: -.045em; }
-    .section-intro { margin: 8px 0 0; color: var(--muted); font-size: 17px; }
-    .identity-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
-    .identity { padding: 28px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--paper); }
-    .identity .num { display: inline-grid; place-items: center; width: 36px; height: 36px; border-radius: 10px; background: var(--blue-soft); color: var(--blue); font-weight: 800; }
-    .identity h3 { margin: 20px 0 8px; font-size: 20px; letter-spacing: -.025em; }
-    .identity p { margin: 0; color: var(--muted); font-size: 15px; }
-    .cases { display: grid; gap: 22px; }
-    .case { overflow: hidden; border: 1px solid var(--line); border-radius: 22px; background: var(--paper); box-shadow: 0 10px 32px rgba(16,24,40,.05); }
-    .case-head { display: grid; grid-template-columns: 150px 1fr; gap: 28px; padding: 30px 32px 24px; border-bottom: 1px solid var(--line); background: linear-gradient(120deg, #fbfcfe, #f5f8fc); }
-    .case-no { color: var(--blue); font-weight: 800; font-size: 13px; letter-spacing: .08em; }
-    .case-title h3 { margin: 0; font-size: 25px; letter-spacing: -.035em; }
-    .case-title p { margin: 8px 0 0; color: var(--muted); }
-    .case-body { display: grid; grid-template-columns: repeat(3,1fr); gap: 0; }
-    .case-block { min-height: 190px; padding: 26px 30px 30px; }
-    .case-block + .case-block { border-left: 1px solid var(--line); }
-    .label { margin-bottom: 10px; color: var(--muted); font-size: 12px; font-weight: 800; letter-spacing: .09em; text-transform: uppercase; }
-    .case-block p { margin: 0; font-size: 14.5px; }
-    .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
-    .tag { padding: 5px 9px; border: 1px solid #d0d5dd; border-radius: 999px; color: #475467; background: #fff; font-size: 12px; }
-    .outcome { color: var(--green); font-weight: 700; }
-    .timeline { position: relative; padding-left: 26px; }
-    .timeline::before { content: ""; position: absolute; left: 5px; top: 9px; bottom: 12px; width: 2px; background: #d0d5dd; }
-    .timeline-item { position: relative; display: grid; grid-template-columns: 190px 1fr; gap: 34px; padding-bottom: 34px; }
-    .timeline-item::before { content: ""; position: absolute; left: -25px; top: 9px; width: 12px; height: 12px; border: 3px solid var(--blue); border-radius: 50%; background: #fff; }
-    .timeline-date { color: var(--muted); font-size: 14px; font-weight: 700; }
-    .timeline-content h3 { margin: 0; font-size: 21px; }
-    .timeline-content p { margin: 8px 0 0; color: var(--muted); }
-    .skills-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 18px; }
-    .skill-card { padding: 26px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--paper); }
-    .skill-card h3 { margin: 0 0 14px; font-size: 18px; }
-    .skill-list { display: flex; flex-wrap: wrap; gap: 9px; }
-    .skill-list span { padding: 7px 10px; border-radius: 8px; background: #f2f4f7; color: #344054; font-size: 13px; }
-    .contact { padding: 64px 0; color: #fff; background: #0b1220; }
-    .contact-inner { display: flex; align-items: center; justify-content: space-between; gap: 36px; }
-    .contact h2 { margin: 0; font-size: 34px; }
-    .contact p { margin: 8px 0 0; color: #aeb9ca; }
-    .contact-links { display: flex; flex-wrap: wrap; gap: 12px; }
-    .contact-links a { padding: 11px 15px; border: 1px solid #344054; border-radius: 9px; color: #fff; text-decoration: none; }
-    footer { padding: 24px 0; background: #080d16; color: #7f8b9d; font-size: 12px; }
-    @media (max-width: 900px) {
-      .hero-grid, .section-head { grid-template-columns: 1fr; }
-      .signal-card { max-width: 520px; }
-      .metrics-grid { grid-template-columns: repeat(2,1fr); }
-      .identity-grid { grid-template-columns: 1fr; }
-      .case-head { grid-template-columns: 1fr; gap: 8px; }
-      .case-body { grid-template-columns: 1fr; }
-      .case-block + .case-block { border-left: 0; border-top: 1px solid var(--line); }
-      .timeline-item { grid-template-columns: 1fr; gap: 4px; }
-      .skills-grid { grid-template-columns: 1fr; }
-      .contact-inner { align-items: flex-start; flex-direction: column; }
-    }
-    @media (max-width: 620px) {
-      .wrap { width: min(100% - 26px, 1120px); }
-      nav { display: none; }
-      .hero { padding-top: 62px; }
-      .hero-copy { font-size: 16px; }
-      .metrics-grid { grid-template-columns: 1fr 1fr; }
-      .metric { padding: 18px; }
-      .metric strong { font-size: 25px; }
-      main section { padding: 62px 0; }
-      .case-head, .case-block { padding-left: 22px; padding-right: 22px; }
-    }
-    @media print {
-      .topbar { position: static; }
-      .hero { padding: 46px 0; }
-      .btn, nav { display: none; }
-      main section { padding: 48px 0; }
-      .case, .identity, .skill-card, .metric { break-inside: avoid; box-shadow: none; }
-    }
+    *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;background:var(--bg);color:var(--ink);font-family:Pretendard,-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans KR",sans-serif;line-height:1.72;word-break:keep-all}
+    a{color:inherit} .wrap{width:min(1140px,calc(100% - 40px));margin:auto}
+    .top{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.9);backdrop-filter:blur(16px);border-bottom:1px solid rgba(223,230,239,.9)}
+    .top .inner{height:68px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .brand{font-size:14px;font-weight:850;letter-spacing:.07em;text-decoration:none}.brand b{color:var(--blue)}
+    nav{display:flex;gap:22px;color:var(--muted);font-size:13px}nav a{text-decoration:none}nav a:hover{color:var(--blue)}
+    .hero{position:relative;overflow:hidden;color:#fff;background:linear-gradient(135deg,#071426 0%,#0c2d58 58%,#104983 100%);padding:94px 0 78px}
+    .hero:before{content:"";position:absolute;width:520px;height:520px;border-radius:50%;right:-120px;top:-230px;background:radial-gradient(circle,rgba(74,144,226,.42),transparent 66%)}
+    .hero:after{content:"";position:absolute;width:380px;height:380px;border-radius:50%;left:-140px;bottom:-250px;background:radial-gradient(circle,rgba(32,164,166,.3),transparent 67%)}
+    .hero-grid{position:relative;display:grid;grid-template-columns:1.15fr .85fr;gap:72px;align-items:center}
+    .eyebrow{margin:0 0 18px;color:#a9d0ff;font-weight:800;font-size:12px;letter-spacing:.14em;text-transform:uppercase}
+    h1{margin:0;font-size:clamp(42px,5.8vw,70px);line-height:1.08;letter-spacing:-.055em}
+    h1 span{display:block;margin-top:13px;color:#d7e8ff;font-size:clamp(20px,2.5vw,30px);font-weight:600;letter-spacing:-.03em}
+    .hero-copy{max-width:760px;margin:28px 0 0;color:#cfdaea;font-size:17px}
+    .actions{display:flex;flex-wrap:wrap;gap:11px;margin-top:32px}.btn{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:0 18px;border-radius:10px;text-decoration:none;font-size:14px;font-weight:800}
+    .btn.primary{background:#fff;color:var(--navy)}.btn.ghost{border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.06)}
+    .flow-card{position:relative;border:1px solid rgba(255,255,255,.16);border-radius:24px;background:rgba(255,255,255,.07);padding:28px;box-shadow:0 25px 70px rgba(0,0,0,.2)}
+    .flow-title{font-size:12px;color:#a9bdd4;letter-spacing:.12em;text-transform:uppercase;margin-bottom:25px}
+    .flow{display:grid;gap:12px}.flow-row{display:grid;grid-template-columns:96px 1fr;gap:18px;align-items:center}.flow-row b{font-size:12px;color:#9dc8ff}.bar{height:38px;border-radius:10px;border:1px solid rgba(255,255,255,.14);background:rgba(2,10,24,.25);display:flex;align-items:center;padding:0 14px;color:#edf5ff;font-size:13px;position:relative;overflow:hidden}.bar:before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:linear-gradient(var(--blue2),var(--cyan))}.flow-note{margin:20px 0 0;padding-top:18px;border-top:1px solid rgba(255,255,255,.12);color:#abc0d8;font-size:12px}
+    .metrics{position:relative;z-index:3;margin-top:-34px}.metric-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.metric{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:22px;box-shadow:var(--shadow)}.metric strong{display:block;color:var(--navy);font-size:29px;line-height:1.15;letter-spacing:-.04em}.metric span{display:block;margin-top:7px;color:var(--muted);font-size:12px}
+    main section{padding:84px 0}main section+section{border-top:1px solid var(--line)}
+    .section-head{display:grid;grid-template-columns:.55fr 1.45fr;gap:44px;align-items:start;margin-bottom:38px}.kicker{margin:0;color:var(--blue);font-size:12px;font-weight:850;letter-spacing:.12em;text-transform:uppercase}.section-head h2{margin:7px 0 0;font-size:clamp(30px,4vw,45px);line-height:1.18;letter-spacing:-.045em}.intro{margin:8px 0 0;color:var(--muted);font-size:16px}
+    .timeline{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.career{position:relative;padding:26px;border-radius:var(--radius);border:1px solid var(--line);background:var(--paper)}.career:before{content:"";position:absolute;left:26px;right:26px;top:0;height:4px;border-radius:0 0 8px 8px;background:linear-gradient(90deg,var(--blue),var(--cyan))}.career .date{color:var(--blue);font-size:12px;font-weight:850}.career h3{margin:12px 0 6px;font-size:20px;letter-spacing:-.025em}.career .role{color:var(--muted);font-size:13px;font-weight:700}.career p{margin:13px 0 0;color:var(--muted);font-size:14px}
+    .principles{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}.principle{padding:24px;border-radius:16px;background:var(--paper);border:1px solid var(--line)}.principle .n{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:10px;background:var(--soft);color:var(--blue);font-weight:850}.principle h3{margin:16px 0 8px;font-size:17px}.principle p{margin:0;color:var(--muted);font-size:13.5px}
+    .cases{display:grid;gap:24px}.case{overflow:hidden;border:1px solid var(--line);border-radius:24px;background:var(--paper);box-shadow:0 12px 38px rgba(19,43,75,.055)}.case-head{display:grid;grid-template-columns:155px 1fr;gap:26px;padding:28px 32px 24px;border-bottom:1px solid var(--line);background:linear-gradient(120deg,#fbfdff,#f2f7fc)}.case-no{color:var(--blue);font-size:12px;font-weight:850;letter-spacing:.08em}.case-head h3{margin:0;font-size:24px;letter-spacing:-.035em}.case-head p{margin:7px 0 0;color:var(--muted);font-size:14px}.case-body{display:grid;grid-template-columns:repeat(3,1fr)}.block{min-height:205px;padding:25px 29px}.block+.block{border-left:1px solid var(--line)}.label{margin-bottom:10px;color:var(--muted);font-size:11px;font-weight:850;letter-spacing:.1em;text-transform:uppercase}.block p{margin:0;font-size:14px}.result{color:var(--green);font-weight:750}.chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:17px}.chip{padding:4px 8px;border-radius:999px;background:#f2f5f8;border:1px solid #d8e0e9;color:#46566a;font-size:11px}
+    .skills{display:grid;grid-template-columns:repeat(2,1fr);gap:17px}.skill{padding:25px;border-radius:18px;border:1px solid var(--line);background:var(--paper)}.skill h3{margin:0 0 14px;font-size:17px}.skill-tags{display:flex;flex-wrap:wrap;gap:8px}.skill-tags span{padding:7px 10px;border-radius:8px;background:#f0f4f8;color:#34475e;font-size:12px}
+    .contact{padding:66px 0;color:#fff;background:#081321}.contact .inner{display:flex;align-items:center;justify-content:space-between;gap:35px}.contact h2{margin:0;font-size:34px;letter-spacing:-.04em}.contact p{margin:8px 0 0;color:#aebdd0}.contact-links{display:flex;flex-wrap:wrap;gap:10px}.contact-links a{padding:11px 15px;border:1px solid #33465f;border-radius:9px;text-decoration:none;font-size:13px}
+    footer{padding:22px 0;background:#050b13;color:#728096;font-size:11px}
+    @media(max-width:920px){.hero-grid,.section-head{grid-template-columns:1fr}.flow-card{max-width:570px}.metric-grid{grid-template-columns:repeat(2,1fr)}.timeline,.principles{grid-template-columns:1fr 1fr}.case-head{grid-template-columns:1fr;gap:6px}.case-body{grid-template-columns:1fr}.block+.block{border-left:0;border-top:1px solid var(--line)}.skills{grid-template-columns:1fr}}
+    @media(max-width:640px){.wrap{width:min(100% - 26px,1140px)}nav{display:none}.hero{padding:64px 0 64px}.hero-copy{font-size:15px}.metric{padding:18px}.metric strong{font-size:24px}main section{padding:62px 0}.timeline,.principles{grid-template-columns:1fr}.case-head,.block{padding-left:22px;padding-right:22px}.contact .inner{align-items:flex-start;flex-direction:column}}
   </style>
 </head>
 <body>
-  <header class="topbar">
-    <div class="wrap inner">
-      <a class="brand" href="#top">이상원 <span>Portfolio</span></a>
-      <nav aria-label="주요 메뉴">
-        <a href="#about">소개</a>
-        <a href="#projects">프로젝트</a>
-        <a href="#experience">경력</a>
-        <a href="#skills">역량</a>
-      </nav>
-    </div>
-  </header>
-
-  <section class="hero" id="top">
-    <div class="wrap hero-grid">
-      <div>
-        <p class="eyebrow">Technical Product Manager · Product / Quality Engineering</p>
-        <h1>이상원<small>기술 요구사항을 제품 계획과 실행으로 연결합니다.</small></h1>
-        <p class="hero-copy">자동차용 반도체 IP 팹리스에서 사내 소프트웨어 제품을 기획·개발·운영하고, 회사 최초의 ISO 26262 기능안전 프로그램을 주관했습니다. HW·SW·검증·품질 조직이 같은 기준으로 의사결정하고 일정 안에서 실행하도록 문제·요구사항·리스크를 구조화합니다.</p>
-        <div class="hero-actions">
-          <a class="btn primary" href="#projects">프로젝트 보기</a>
-          <a class="btn secondary" href="resume.pdf" target="_blank" rel="noopener">이력서 PDF</a>
-          <a class="btn secondary" href="mailto:rillerosion@gmail.com">이메일</a>
-        </div>
-      </div>
-      <figure class="signal-card">
-        <svg viewBox="0 0 560 340" role="img" aria-label="요구사항에서 제품 출시까지 연결되는 흐름">
-          <defs>
-            <linearGradient id="g1" x1="0" x2="1"><stop offset="0" stop-color="#60a5fa"/><stop offset="1" stop-color="#34d399"/></linearGradient>
-          </defs>
-          <rect x="1" y="1" width="558" height="338" rx="18" fill="#0c213d" stroke="#274765"/>
-          <g fill="none" stroke="#294b6f" stroke-width="1">
-            <path d="M40 70H520M40 130H520M40 190H520M40 250H520"/><path d="M100 40V300M200 40V300M300 40V300M400 40V300"/>
-          </g>
-          <path d="M48 238 C115 238, 115 88, 190 88 S278 252, 350 252 S432 102, 512 102" stroke="url(#g1)" stroke-width="8" fill="none" stroke-linecap="round"/>
-          <g font-family="Arial, sans-serif" font-size="14" fill="#dbeafe" text-anchor="middle">
-            <circle cx="48" cy="238" r="12" fill="#60a5fa"/><text x="48" y="274">Problem</text>
-            <circle cx="190" cy="88" r="12" fill="#60a5fa"/><text x="190" y="62">Requirements</text>
-            <circle cx="350" cy="252" r="12" fill="#34d399"/><text x="350" y="286">Execution</text>
-            <circle cx="512" cy="102" r="12" fill="#34d399"/><text x="512" y="76">Release</text>
-          </g>
-          <text x="280" y="326" font-family="Arial, sans-serif" font-size="12" fill="#8ca7c5" text-anchor="middle">Product decisions backed by traceability, validation and risk management</text>
-        </svg>
-        <figcaption>Problem → Requirements → Cross-functional Execution → Verified Release</figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <div class="metrics">
-    <div class="wrap metrics-grid">
-      <div class="metric"><strong>54명</strong><span>사내 QMS 플랫폼 사용자</span></div>
-      <div class="metric"><strong>7+</strong><span>기획·출시·운영한 모듈</span></div>
-      <div class="metric"><strong>8개월</strong><span>ISO 26262 프로그램 주관</span></div>
-      <div class="metric"><strong>179개</strong><span>출하 검증 필수 룰 구조화</span></div>
-    </div>
-  </div>
-
-  <main>
-    <section id="about">
-      <div class="wrap">
-        <div class="section-head">
-          <div><p class="kicker">How I Work</p><h2>기술과 실행 사이의 빈틈을 메웁니다.</h2></div>
-          <p class="section-intro">표준·고객 요구·개발 이슈를 그대로 전달하는 데 그치지 않고, 실행 가능한 요구사항과 우선순위, 담당자, 검증 기준으로 바꿉니다. 직접 소프트웨어를 만들 수 있는 기술 깊이와 기능안전·품질 도메인을 함께 갖추고 있습니다.</p>
-        </div>
-        <div class="identity-grid">
-          <article class="identity"><span class="num">01</span><h3>Product & Requirements</h3><p>사용자 업무의 병목을 관찰하고 문제를 정의합니다. 업무 영향도와 시급성으로 요구사항을 정렬하고, 작은 단위로 출시한 뒤 피드백을 다음 개선에 반영합니다.</p></article>
-          <article class="identity"><span class="num">02</span><h3>Technical Program Management</h3><p>활동·산출물·R&amp;R·일정·리스크·검증 기준을 구조화하고, 조직과 외부 이해관계자의 이슈를 한 백로그에서 추적해 마일스톤을 지킵니다.</p></article>
-          <article class="identity"><span class="num">03</span><h3>Data-driven Problem Solving</h3><p>의견보다 데이터와 검증 결과를 기준으로 원인을 좁힙니다. 장애의 Root Cause를 규명하는 데서 끝내지 않고 개선안 적용과 재검증까지 닫습니다.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section id="projects">
-      <div class="wrap">
-        <div class="section-head">
-          <div><p class="kicker">Selected Work</p><h2>제품과 프로그램을 끝까지 운영한 경험</h2></div>
-          <p class="section-intro">42dot Technical Product Manager 직무와 직접 연결되는 경험을 제품 기획·프로그램 관리·릴리스 검증·일정 및 장애 대응 관점으로 정리했습니다.</p>
-        </div>
-        <div class="cases">
-          <article class="case">
-            <header class="case-head"><div class="case-no">CASE 01 · PRODUCT</div><div class="case-title"><h3>QMS — 사내 Quality Control Hub</h3><p>분산된 이슈·스펙·문서·일정을 하나의 내부 소프트웨어 제품으로 통합</p></div></header>
-            <div class="case-body">
-              <div class="case-block"><div class="label">Problem</div><p>약 54명의 개발부서가 Excel·메신저·개별 문서로 업무를 관리해 프로젝트 상태와 변경 영향을 파악하기 어려웠습니다. 외부 클라우드 사용 불가와 서버 root 권한 부재라는 제약도 있었습니다.</p></div>
-              <div class="case-block"><div class="label">My Role</div><p>사용자 요구 수집과 문제 정의, 우선순위 결정, 기능 설계, 개발·배포·운영을 담당했습니다. RPMT·CITS·Spec Center·Document Studio·APQP 등 7개 이상 모듈을 단계적으로 출시했습니다.</p><div class="tags"><span class="tag">Python</span><span class="tag">Rust</span><span class="tag">Podman</span><span class="tag">Local LLM / RAG</span></div></div>
-              <div class="case-block"><div class="label">Outcome</div><p class="outcome">요구사항·검증·품질 데이터의 가시성과 추적성을 높이고, 요구 수집 → 우선순위 → 릴리스 → 피드백 개선의 제품 사이클을 실제 조직에서 지속 운영했습니다.</p></div>
-            </div>
-          </article>
-
-          <article class="case">
-            <header class="case-head"><div class="case-no">CASE 02 · PROGRAM</div><div class="case-title"><h3>ISO 26262 기능안전 인증 프로그램</h3><p>사내 경험자가 없던 조직에서 전사 기술 프로그램을 설계하고 외부 심사까지 운영</p></div></header>
-            <div class="case-body">
-              <div class="case-block"><div class="label">Program Design</div><p>안전 라이프사이클을 정의하고 Project Plan·Safety Plan에 활동, 산출물, 역할, 일정, 검증 기준을 구조화했습니다. Item Definition부터 HARA, FSC/TSC, HRS/HDS, FMEA/FTA/FMEDA까지 연계했습니다.</p></div>
-              <div class="case-block"><div class="label">Stakeholders & Risk</div><p>디지털·아날로그 설계, 검증, 품질, 고객사, 외부 컨설팅, TÜV SÜD와 협업했습니다. 수십 차례 Review Protocol 이슈를 영역·우선순위·담당자로 분류하고 추적했습니다.</p><div class="tags"><span class="tag">ISO 26262</span><span class="tag">Traceability</span><span class="tag">FMEA / FTA / FMEDA</span></div></div>
-              <div class="case-block"><div class="label">Outcome</div><p class="outcome">Open Issue를 모두 Close하고 영어 On-site Audit을 완료해 최종 Assessment 단계까지 진척시켰습니다. 경험자 없는 조직에서 표준·산출물·심사를 하나의 프로그램으로 묶었습니다.</p></div>
-            </div>
-          </article>
-
-          <article class="case">
-            <header class="case-head"><div class="case-no">CASE 03 · RELEASE</div><div class="case-title"><h3>DQV Sign-off Hub</h3><p>IP 릴리스 전 문서·Front-end·Back-end 정합성을 자동 검증하는 준비도 관리 도구</p></div></header>
-            <div class="case-body">
-              <div class="case-block"><div class="label">Problem</div><p>고객 릴리스 시점에 산출물 간 정합성 오류가 반복됐고, 검증 완료 여부와 실패 원인을 한눈에 판단하기 어려웠습니다.</p></div>
-              <div class="case-block"><div class="label">Solution</div><p>Foundry Standard 179개 필수 룰을 Verilog·LEF·Liberty·DRC·LVS·datasheet·pininfo checker에 매핑해 Rule Deck과 Traceability Matrix를 만들었습니다.</p><div class="tags"><span class="tag">Flask</span><span class="tag">Rule Deck</span><span class="tag">Job Lifecycle</span><span class="tag">Dashboard</span></div></div>
-              <div class="case-block"><div class="label">Outcome</div><p class="outcome">Job 상태와 검증 결과를 분리해 추적하고, Dashboard·Comparison·Report parsing으로 릴리스 의사결정의 근거와 이력을 남기도록 구현했습니다.</p></div>
-            </div>
-          </article>
-
-          <article class="case">
-            <header class="case-head"><div class="case-no">CASE 04 · DELIVERY</div><div class="case-title"><h3>일정 위기 대응과 HTOL 장애 분석</h3><p>우선순위를 다시 설계해 납기를 지키고, 데이터로 Root Cause와 재발 방지까지 완결</p></div></header>
-            <div class="case-body">
-              <div class="case-block"><div class="label">Delivery</div><p>S-PCB 이슈로 칩 입고가 1개월 지연된 상황에서 디지털·아날로그·품질 담당자의 장비 일정과 시험 우선순위를 재조정했습니다.</p><p class="outcome" style="margin-top:12px">2개월 분량 검증을 1개월 내 완료해 고객 납기 준수</p></div>
-              <div class="case-block"><div class="label">Root Cause</div><p>77개 칩의 1008시간 HTOL에서 증가하는 복수 Failure Mode를 설계·보드·환경 순으로 배제하고 X-Ray·EMMI·패키지 물리분석으로 Solder Extrusion → Ball Short를 규명했습니다.</p></div>
-              <div class="case-block"><div class="label">Validation</div><p class="outcome">Underfill 소재의 CTE·Tg·Modulus를 비교해 대체 소재를 선정하고 동일 조건의 후속 시험에서 재발 0을 확인했습니다.</p><div class="tags"><span class="tag">HTOL</span><span class="tag">X-Ray / EMMI</span><span class="tag">Package FA</span></div></div>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="experience">
-      <div class="wrap">
-        <div class="section-head">
-          <div><p class="kicker">Experience</p><h2>제품 전 흐름을 잇는 경력</h2></div>
-          <p class="section-intro">반도체 공정과 디지털 설계·검증을 학습한 뒤, 현업에서 테스트·신뢰성·패키지·불량분석·기능안전·내부 소프트웨어 제품을 연결해 왔습니다.</p>
-        </div>
-        <div class="timeline">
-          <article class="timeline-item"><div class="timeline-date">2023.09 — 현재</div><div class="timeline-content"><h3>주식회사 램쉽 · 품질경영본부 연구원</h3><p>고속 SerDes 인터페이스 IP 팹리스에서 반도체 IP·MPW 칩의 품질·신뢰성 검증, ISO 26262 인증 프로그램, QMS 플랫폼을 담당합니다. 2인 품질 조직에서 Tape-out 이후 검증·신뢰성·불량분석·출하 라이프사이클을 관리합니다.</p></div></article>
-          <article class="timeline-item"><div class="timeline-date">2017.03 — 2023.02</div><div class="timeline-content"><h3>전북대학교 반도체과학기술학과</h3><p>학점 4.09/4.5, 졸업석차 1/18, 총장상 2회. IDEC 시스템반도체설계 디지털트랙을 통해 Verilog 기반 설계·검증을 학습했습니다.</p></div></article>
-        </div>
-      </div>
-    </section>
-
-    <section id="skills">
-      <div class="wrap">
-        <div class="section-head">
-          <div><p class="kicker">Skills</p><h2>제품·기술·도메인을 함께 이해합니다.</h2></div>
-          <p class="section-intro">개발자와 기술 세부사항을 논의하면서도, 요구사항·일정·리스크·검증·릴리스라는 제품 관점으로 대화를 구조화할 수 있습니다.</p>
-        </div>
-        <div class="skills-grid">
-          <article class="skill-card"><h3>Product / Program</h3><div class="skill-list"><span>Problem Definition</span><span>Requirements</span><span>Prioritization</span><span>Roadmap / Milestone</span><span>Issue Tracking</span><span>Traceability</span><span>Release Readiness</span><span>Cross-functional Coordination</span></div></article>
-          <article class="skill-card"><h3>Software / Tools</h3><div class="skill-list"><span>Jira</span><span>Python</span><span>Flask</span><span>Rust</span><span>LabVIEW</span><span>Podman</span><span>Local LLM / RAG</span><span>Git</span></div></article>
-          <article class="skill-card"><h3>Automotive / Safety</h3><div class="skill-list"><span>ISO 26262</span><span>HARA</span><span>FSC / TSC</span><span>FMEA</span><span>FTA</span><span>FMEDA</span><span>DFA</span><span>IATF 16949</span></div></article>
-          <article class="skill-card"><h3>Semiconductor / Quality</h3><div class="skill-list"><span>HTOL</span><span>HBM / CDM</span><span>Latch-up</span><span>Failure Analysis</span><span>X-Ray / EMMI</span><span>FCBGA / Underfill</span><span>PVT Automation</span><span>Sign-off Validation</span></div></article>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <section class="contact">
-    <div class="wrap contact-inner">
-      <div><h2>기술적 의사결정을 실행 가능한 계획으로 연결합니다.</h2><p>Technical Product Manager (Software) · Pangyo</p></div>
-      <div class="contact-links"><a href="mailto:rillerosion@gmail.com">rillerosion@gmail.com</a><a href="resume.pdf" target="_blank" rel="noopener">Resume PDF</a></div>
-    </div>
-  </section>
-  <footer><div class="wrap">© 2026 Lee Sang-Won. Portfolio content excludes confidential source code and customer information.</div></footer>
-</body>
-</html>
+<header class="top"><div class="wrap inner"><a class="brand" href="#top">SANGWON.LEE <b>/ PORTFOLIO</b></a><nav><a href="#career">경력</a><a href="#work">프로젝트</a><a href="#skills">역량</a><a href="#contact">연락처</a></nav></div></header>
+<section class="hero" id="top"><div class="wrap hero-grid"><div><p class="eyebrow">Technical Product Manager · Semiconductor Product / Quality</p><h1>설계부터 품질까지,<span>제품 문제를 끝까지 닫습니다.</span></h1><p class="hero-copy">반도체 공정 전공을 바탕으로 KIST에서 측정 자동화를 시작했고, 램쉽에서 Tape-out 이후 MPW 샘플 칩의 패키지·특성 평가·신뢰성·Failure Analysis·QA 전 과정을 담당했습니다. 기능안전 프로그램과 사내 소프트웨어 제품까지 직접 운영하며 하드웨어와 소프트웨어 조직의 실행을 연결합니다.</p><div class="actions"><a class="btn primary" href="#work">프로젝트 보기</a><a class="btn ghost" href="resume.pdf" target="_blank" rel="noopener">이력서 PDF</a><a class="btn ghost" href="mailto:rillerosion@gmail.com">이메일</a></div></div><aside class="flow-card"><div class="flow-title">Product Lifecycle Coverage</div><div class="flow"><div class="flow-row"><b>DESIGN</b><div class="bar">Verilog · Analog / Digital Review</div></div><div class="flow-row"><b>BUILD</b><div class="bar">Substrate · Package Build · MPW</div></div><div class="flow-row"><b>VALIDATE</b><div class="bar">PVT · JEDEC · QA Report</div></div><div class="flow-row"><b>IMPROVE</b><div class="bar">Failure Analysis · Automation · QMS</div></div></div><p class="flow-note">문제를 한 단계의 오류로 보지 않고, 설계 → 공정 → 패키지 → 검증 → 품질 흐름에서 원인을 좁힙니다.</p></aside></div></section>
+<div class="metrics"><div class="wrap metric-grid"><div class="metric"><strong>54명</strong><span>사내 QMS 실제 사용자</span></div><div class="metric"><strong>3배+</strong><span>PVT 측정 시간 단축</span></div><div class="metric"><strong>8개월</strong><span>ISO 26262 프로그램 주관</span></div><div class="metric"><strong>재발 0</strong><span>HTOL 개선 후 후속 검증</span></div></div></div>
+<main>
+<section id="career"><div class="wrap"><div class="section-head"><div><p class="kicker">Career Path</p><h2>공정에서 자동화와 제품 검증까지</h2></div><p class="intro">전공, 연구 현장, 반도체 IP 팹리스 실무가 단절된 경험이 아니라 하나의 흐름으로 이어집니다. 소자와 제조를 이해하고, 측정 시스템을 개선하며, 샘플 칩의 검증과 품질 의사결정을 담당해 왔습니다.</p></div><div class="timeline"><article class="career"><div class="date">2017.03 - 2023.02</div><h3>전북대학교</h3><div class="role">반도체과학기술학과 · 학사</div><p>학점 4.09/4.5, 졸업석차 1/18. 반도체 소자·공정·회로를 학습하고 IDEC 디지털트랙에서 Verilog·FPGA 기반 설계와 검증을 경험했습니다.</p></article><article class="career"><div class="date">2022.09 - 2022.12</div><h3>한국과학기술연구원 (KIST)</h3><div class="role">현장실습생 · 열전소자 특성 평가</div><p>제벡계수·전기전도도 측정과 데이터 분석을 수행했습니다. LabVIEW 자동 계산·저장 기능을 구현해 3일 이상 걸리던 측정 업무를 1일로 단축했습니다.</p></article><article class="career"><div class="date">2023.09 - 현재</div><h3>RAMSCHIP</h3><div class="role">품질경영본부 · 연구원(QM)</div><p>Tape-out 이후 MPW 샘플 칩 검증, 신뢰성·Failure Analysis, ISO 26262 기능안전, LabVIEW 자동화, QMS·DQV Sign-off Hub를 담당합니다.</p></article></div></div></section>
+<section><div class="wrap"><div class="section-head"><div><p class="kicker">How I Work</p><h2>기술 문제를 실행 가능한 일로 바꿉니다.</h2></div><p class="intro">원인을 찾는 분석, 기준을 세우는 문서화, 여러 조직을 움직이는 일정 관리, 반복 업무를 줄이는 자동화를 함께 수행합니다.</p></div><div class="principles"><article class="principle"><span class="n">01</span><h3>제품 전체 관점</h3><p>패키지·특성·신뢰성·품질 데이터를 연결해 한 단계의 증상에 머물지 않습니다.</p></article><article class="principle"><span class="n">02</span><h3>데이터 기반 판단</h3><p>의견이 갈릴 때 설계·보드·환경을 순차 배제하고 물리분석으로 판단 근거를 만듭니다.</p></article><article class="principle"><span class="n">03</span><h3>프로그램 구조화</h3><p>활동·산출물·R&amp;R·일정·검증 기준과 이슈를 하나의 실행 계획으로 관리합니다.</p></article><article class="principle"><span class="n">04</span><h3>직접 만드는 자동화</h3><p>필요한 도구가 없으면 LabVIEW·Python·Rust로 구현하고 실제 사용자 피드백으로 개선합니다.</p></article></div></div></section>
+<section id="work"><div class="wrap"><div class="section-head"><div><p class="kicker">Selected Work</p><h2>문제 발견부터 개선 검증까지</h2></div><p class="intro">뉴라텍 기능안전 이력서와 SK하이닉스 Product Engineering 지원서에서 검증된 핵심 경험을 중심으로 정리했습니다.</p></div><div class="cases">
+<article class="case"><header class="case-head"><div class="case-no">CASE 01 · PRODUCT VALIDATION</div><div><h3>MPW 샘플 칩 검증과 HTOL Failure Analysis</h3><p>패키지 협의부터 특성 평가·신뢰성·불량분석·개선 검증까지</p></div></header><div class="case-body"><div class="block"><div class="label">Scope</div><p>Substrate 검토, Package Build, PVT 특성 평가, Test, QA 리포트, HTOL/HBM/CDM/Latch-up 계획과 공인 시험기관 의뢰를 담당했습니다.</p><div class="chips"><span class="chip">MPW</span><span class="chip">PVT</span><span class="chip">JEDEC</span></div></div><div class="block"><div class="label">Analysis</div><p>77개 칩의 1008시간 HTOL에서 증가하는 Failure Mode를 설계·보드·환경 순으로 배제했습니다. X-Ray Bump 이상점, EMMI, 패키지 물리분석으로 Solder Extrusion → Ball Short를 규명했습니다.</p></div><div class="block"><div class="label">Outcome</div><p class="result">Underfill의 CTE·Tg·Modulus를 비교해 대체 소재를 선정하고 C-SAM과 후속 신뢰성 시험으로 재발 0을 확인했습니다.</p></div></div></article>
+<article class="case"><header class="case-head"><div class="case-no">CASE 02 · TEST AUTOMATION</div><div><h3>LabVIEW 계측 자동화 — KIST에서 램쉽으로</h3><p>현장의 반복 작업을 관찰하고 측정 시스템 자체를 개선</p></div></header><div class="case-body"><div class="block"><div class="label">KIST</div><p>제벡계수·전기전도도 측정 과정의 반복 이동과 수기 계산 문제를 발견했습니다. 자동 환산과 TXT/Excel 데이터 저장 기능을 구현했습니다.</p></div><div class="block"><div class="label">RAMSCHIP</div><p>오실로스코프·FPGA·Power Supply·온도조절기를 USB/VISA로 통합하고 Manual/Shmoo/SCAN, FSM 기반 온도·전원 제어, PVT 전 구간 측정을 자동화했습니다.</p><div class="chips"><span class="chip">LabVIEW</span><span class="chip">FPGA</span><span class="chip">VISA</span></div></div><div class="block"><div class="label">Outcome</div><p class="result">KIST 측정 업무를 3일 이상에서 1일로 단축했고, 램쉽 PVT 측정 시간을 3배 이상 줄이며 재현성·추적성을 확보했습니다.</p></div></div></article>
+<article class="case"><header class="case-head"><div class="case-no">CASE 03 · TECHNICAL PROGRAM</div><div><h3>ISO 26262 기능안전 인증 체계 구축</h3><p>사내 경험자가 없던 상황에서 표준·산출물·협업·심사를 하나의 프로그램으로 운영</p></div></header><div class="case-body"><div class="block"><div class="label">Program Design</div><p>안전 라이프사이클과 Project Plan·Safety Plan을 수립하고 활동·산출물·역할·일정·검증 기준을 정의했습니다.</p></div><div class="block"><div class="label">Execution</div><p>Item Definition, HARA, FSC/TSC, HRS/HDS, FMEA·FTA·FMEDA, DIA, Safety Case, Tool Qualification과 양방향 추적성을 구축했습니다.</p><div class="chips"><span class="chip">ISO 26262</span><span class="chip">FMEDA</span><span class="chip">Traceability</span></div></div><div class="block"><div class="label">Outcome</div><p class="result">약 8개월간 수십 차례 TÜV SÜD Review Protocol을 대응해 이슈를 모두 Close하고 해외 심사관 On-site Audit을 수행해 최종 Assessment 단계까지 진척시켰습니다.</p></div></div></article>
+<article class="case"><header class="case-head"><div class="case-no">CASE 04 · INTERNAL PRODUCT</div><div><h3>QMS &amp; DQV Sign-off Hub</h3><p>약 54명이 사용하는 품질 플랫폼과 IP 릴리스 검증 도구를 직접 기획·개발·운영</p></div></header><div class="case-body"><div class="block"><div class="label">QMS Product</div><p>분산된 이슈·스펙·문서·일정을 통합하기 위해 요구를 수집하고 우선순위를 정해 RPMT·CITS·Spec Center·Document Studio·APQP 등 7개 이상 모듈을 단계적으로 출시했습니다.</p></div><div class="block"><div class="label">Technical Solution</div><p>외부 클라우드와 root 권한을 쓸 수 없는 환경에서 Podman Rootless, 로컬 LLM/RAG를 구축하고 성능 병목은 Python에서 Rust로 전환했습니다.</p><div class="chips"><span class="chip">Python</span><span class="chip">Rust</span><span class="chip">Podman</span><span class="chip">Local LLM / RAG</span></div></div><div class="block"><div class="label">DQV / Outcome</div><p class="result">Foundry Standard 179개 필수 룰을 checker와 연결하고 Job lifecycle과 validation result를 분리해 릴리스 판단 근거를 남겼습니다. 요구 수집 → 출시 → 피드백 개선의 제품 사이클을 실제 조직에서 운영했습니다.</p></div></div></article>
+</div></div></section>
+<section id="skills"><div class="wrap"><div class="section-head"><div><p class="kicker">Capabilities</p><h2>도메인과 도구</h2></div><p class="intro">소프트웨어 도구 자체보다 실제 반도체 제품 개발과 검증 문제를 해결하는 데 어떻게 적용했는지를 중요하게 생각합니다.</p></div><div class="skills"><article class="skill"><h3>Product / Quality</h3><div class="skill-tags"><span>Product Validation</span><span>Package / Substrate</span><span>HTOL · HBM · CDM · Latch-up</span><span>Failure Analysis</span><span>X-Ray · EMMI · C-SAM</span><span>IATF 16949</span></div></article><article class="skill"><h3>Functional Safety</h3><div class="skill-tags"><span>ISO 26262 Part 2/5/8/9/11</span><span>HARA</span><span>FSC / TSC</span><span>FMEA / FTA / FMEDA</span><span>Safety Case</span><span>Tool Qualification</span></div></article><article class="skill"><h3>Software / Automation</h3><div class="skill-tags"><span>Python</span><span>Flask</span><span>Rust</span><span>LabVIEW</span><span>Podman Rootless</span><span>Local LLM / RAG</span><span>Jira</span></div></article><article class="skill"><h3>Design / Test</h3><div class="skill-tags"><span>Verilog</span><span>FPGA</span><span>C</span><span>PVT Corner</span><span>Eye Diagram</span><span>Shmoo</span><span>CTS</span></div></article></div></div></section>
+</main>
+<section class="contact" id="contact"><div class="wrap inner"><div><h2>기술과 실행을 연결하는 역할을 찾고 있습니다.</h2><p>Technical Product Manager (Software) · 판교</p></div><div class="contact-links"><a href="mailto:rillerosion@gmail.com">rillerosion@gmail.com</a><a href="tel:+821095205112">010-9520-5112</a><a href="resume.pdf" target="_blank" rel="noopener">Resume PDF</a></div></div></section>
+<footer><div class="wrap">© 2026 Lee Sang-Won · Portfolio hosted on GitHub Pages</div></footer>
+</body></html>
