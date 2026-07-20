@@ -1,29 +1,24 @@
-# asmodeliy.github.io
+# asmodeliy.github.io — Portfolio
 
-이상원 포트폴리오 + 코딩 로그. Jekyll + GitHub Pages.
+42dot Technical Product Manager (Software) 지원을 위해 정리한 단일 페이지 포트폴리오입니다.
 
-## 글 추가
+## 배포
 
-`_posts/YYYY-MM-DD-slug.md` 파일 생성 → 커밋 → 푸시. 1~2분 내 자동 반영.
+이 저장소의 기본 브랜치 루트에 아래 파일을 업로드합니다.
 
-```markdown
----
-layout: post
-title: "글 제목"
-tags: [tag1, tag2]
----
+- `index.html`
+- `404.html`
+- `.nojekyll`
+- `resume.pdf`
 
-본문 (마크다운)
-```
+GitHub Pages 설정은 **Deploy from a branch / main / root**로 지정합니다.
 
-## 구조
+## 구성
 
-- `_config.yml` — 사이트 설정
-- - `_layouts/` — default(공통), post(글)
-  - - `_posts/` — 코딩 로그
-    - - `log/` — 로그 목록 페이지
-      - - `assets/` — CSS, GitHub API 연동 JS
-       
-        - ## 커스텀 도메인 (선택)
-       
-        - `asmodeliy.is-a.dev`: https://github.com/is-a-dev/register 에 `domains/asmodeliy.json` PR → 머지 후 Settings > Pages > Custom domain 설정.
+- Product & Requirements
+- ISO 26262 Technical Program Management
+- DQV Release Readiness
+- Delivery & Root Cause Analysis
+- Experience / Skills
+
+고객 정보와 사내 소스코드는 포함하지 않습니다.
