@@ -150,6 +150,17 @@
     .gallery figure:hover img{border-color:#a8a8a0}
     .gallery figcaption{margin-top:8px;font-family:var(--mono);font-size:9px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;line-height:1.5}
 
+    /* click-to-zoom (CSS only) */
+    .zoom{display:block;cursor:zoom-in}
+    .lightbox{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;padding:32px;background:rgba(17,19,24,.93);opacity:0;visibility:hidden;pointer-events:none}
+    .lightbox:target{opacity:1;visibility:visible;pointer-events:auto;animation:lb-fade .28s ease both}
+    .lb-close{position:absolute;inset:0;cursor:zoom-out}
+    .lightbox img{position:relative;max-width:min(1500px,95vw);max-height:92vh;width:auto;border-radius:3px;border:1px solid #2b2f38;box-shadow:0 30px 80px rgba(0,0,0,.55)}
+    .lightbox:target img{animation:lb-zoom .32s cubic-bezier(.2,.75,.2,1) both}
+    @keyframes lb-fade{from{opacity:0}to{opacity:1}}
+    @keyframes lb-zoom{from{transform:scale(.94)}to{transform:scale(1)}}
+    @media(prefers-reduced-motion:reduce){.lightbox:target,.lightbox:target img{animation:none}}
+
     /* principles */
     .operating{display:grid;grid-template-columns:repeat(4,1fr);gap:0 40px;border-top:1px solid var(--line)}
     .operate{padding:30px 0;border-bottom:1px solid var(--line)}
@@ -222,30 +233,30 @@
 
 <section id="work"><div class="wrap"><div class="section-head"><div><p class="kicker">Selected Programs</p><h2>일정·요구사항·기술 리스크를 끝까지 관리한 경험</h2></div><p class="intro">프로젝트의 기술적 난도를 이해하면서도, 핵심 책임은 개인 분석이 아니라 여러 조직의 실행을 구조화하고 결과를 확보하는 데 두었습니다.</p></div><div class="cases">
 <article class="case"><header class="case-head"><div class="case-no">CASE 01 · INTERNAL PRODUCT</div><div><h3>54명이 사용하는 QMS 플랫폼 기획·출시·운영</h3><p>분산된 프로젝트·문서·품질 문제를 하나의 내부 제품 로드맵으로 전환</p></div></header><div class="case-body"><div class="block"><div class="label">Problem Discovery</div><p>개발 조직의 이슈·스펙·문서·일정이 Excel, 메신저, 개인 PC에 흩어져 변경 영향과 현재 상태를 파악하기 어려웠습니다. 외부 클라우드 사용 불가와 root 권한 부재도 제약이었습니다.</p></div><div class="block"><div class="label">Product Management</div><p>사용자 업무 흐름을 관찰해 요구를 수집하고 영향도·시급성으로 우선순위를 정했습니다. RPMT, CITS, Spec Center, Document Studio, APQP 등 7개 이상 모듈을 단계적으로 출시하고 피드백을 다음 릴리스에 반영했습니다.</p><div class="chips"><span class="chip">Roadmap</span><span class="chip">Prioritization</span><span class="chip">Jira</span><span class="chip">Release &amp; Feedback</span></div></div><div class="block"><div class="label">Outcome</div><p class="result">약 54명이 사용하는 운영 제품으로 정착시켰습니다. 프로젝트 상태와 변경 이력, 기술 문서, 고객 이슈를 같은 기준으로 추적할 수 있게 했습니다.</p></div></div></article>
-<article class="case"><header class="case-head"><div class="case-no">CASE 02 · SYSTEM REQUIREMENT</div><div><h3>ISO 26262 기능안전 프로그램 구축</h3><p>표준 요구를 실행 가능한 산출물·역할·일정·검증 기준으로 전환</p></div></header><div class="case-body"><div class="block"><div class="label">Program Definition</div><p>사내 경험자가 없는 상황에서 안전 라이프사이클, Project Plan, Safety Plan을 수립하고 활동·산출물·R&amp;R·마일스톤·완료 기준을 정의했습니다.</p></div><div class="block"><div class="label">Technical Coordination</div><p>Item Definition, HARA, FSC/TSC, HRS/HDS, FMEA·FTA·FMEDA와 Verification Plan을 연결했습니다. 설계·검증·품질·외부 컨설팅·TÜV SÜD 사이의 이슈를 우선순위와 담당자로 관리했습니다.</p><div class="chips"><span class="chip">Requirements</span><span class="chip">Traceability</span><span class="chip">R&amp;R</span><span class="chip">Issue Management</span></div></div><div class="block"><div class="label">Outcome</div><p class="result">약 8개월간 수십 차례 Review Protocol 이슈를 모두 Close하고 해외 심사관 On-site Audit을 수행해 최종 Assessment 단계까지 진척시켰습니다.</p></div></div></article>
+<article class="case"><header class="case-head"><div class="case-no">CASE 02 · SYSTEM REQUIREMENT</div><div><h3>ISO 26262 기능안전 프로그램 구축</h3><p>표준 요구를 실행 가능한 산출물·역할·일정·검증 기준으로 전환</p></div></header><div class="case-body"><div class="block"><div class="label">Program Definition</div><p>사내 경험자가 없는 상황에서 안전 라이프사이클, Project Plan, Safety Plan을 수립하고 활동·산출물·R&amp;R·마일스톤·완료 기준을 정의했습니다.</p></div><div class="block"><div class="label">Technical Coordination</div><p>Hardware Requirements·Design Specification, FMEA·FTA·DFA·FMEDA, Verification Plan을 하나의 흐름으로 연결했습니다. 설계·검증·품질·외부 컨설팅·TÜV SÜD 사이의 이슈를 우선순위와 담당자로 관리했습니다.</p><div class="chips"><span class="chip">Requirements</span><span class="chip">Traceability</span><span class="chip">R&amp;R</span><span class="chip">Issue Management</span></div></div><div class="block"><div class="label">Outcome</div><p class="result">약 8개월간 수십 차례 Review Protocol 이슈를 모두 Close하고 해외 심사관 On-site Audit을 수행해 최종 Assessment 단계까지 진척시켰습니다.</p></div></div></article>
 <article class="case"><header class="case-head"><div class="case-no">CASE 03 · RELEASE &amp; RISK</div><div><h3>DQV Sign-off와 HTOL 기술 리스크 Close</h3><p>릴리스 판단 기준을 시스템화하고, 복합 불량은 개선·재검증까지 완결</p></div></header><div class="case-body"><div class="block"><div class="label">Release Gate</div><p>Foundry Standard 179개 필수 룰을 Verilog·LEF·Liberty·DRC·LVS·datasheet·pininfo Checker와 연결했습니다. Job 상태, 검증 결과, 실패 원인을 분리해 Sign-off 근거를 남겼습니다.</p></div><div class="block"><div class="label">Risk Decision</div><p>77개 칩의 1008시간 HTOL 복합 Failure를 설계·보드·환경 순으로 배제하고 X-Ray, EMMI, 패키지 분석으로 Solder Extrusion → Ball Short를 규명했습니다.</p><div class="chips"><span class="chip">Release Readiness</span><span class="chip">Rule Traceability</span><span class="chip">Root Cause</span><span class="chip">Decision Evidence</span></div></div><div class="block"><div class="label">Outcome</div><p class="result">Underfill CTE·Tg·Modulus 비교를 바탕으로 대체 소재를 선정하고 동일 조건의 후속 신뢰성 시험에서 재발 0을 확인했습니다.</p></div></div></article>
 <article class="case"><header class="case-head"><div class="case-no">CASE 04 · HW/SW INTEGRATION</div><div><h3>MPW 샘플 칩의 Build–Validation–QA 오너십</h3><p>패키지·테스트·자동화·신뢰성 조직을 연결해 릴리스 준비도를 확보</p></div></header><div class="case-body"><div class="block"><div class="label">Module Lifecycle</div><p>Substrate 검토, Package Build, PVT 특성 평가, Test, QA 리포트, HTOL/HBM/CDM/Latch-up 계획과 공인 시험기관 의뢰까지 샘플 lifecycle을 담당했습니다.</p></div><div class="block"><div class="label">Interface Alignment</div><p>디지털팀의 Test Vector·C code·FPGA, 품질 측의 LabVIEW·Python 자동화·QA 리포트, 패키지 및 시험기관의 조건을 정렬해 입력물과 완료 기준을 관리했습니다.</p><div class="chips"><span class="chip">HW/SW Boundary</span><span class="chip">Package Build</span><span class="chip">System Test</span><span class="chip">QA Sign-off</span></div></div><div class="block"><div class="label">Outcome</div><p class="result">설계–패키지–테스트 사이의 변경 영향을 빠르게 식별하고, 샘플 상태와 기술 리스크를 근거 기반으로 공유하는 검증·보고 체계를 운영했습니다.</p></div></div></article>
 <article class="case"><header class="case-head"><div class="case-no">CASE 05 · DELIVERY RECOVERY</div><div><h3>샘플 칩 검증 납기 위기 정상화</h3><p>1개월 지연된 프로젝트의 의존성과 자원을 다시 설계해 고객 일정을 회복</p></div></header><div class="case-body"><div class="block"><div class="label">Situation &amp; Risk</div><p>Substrate PCB 이슈로 칩 입고가 1개월 지연됐지만, 기존 고객 납기는 유지되어 2개월 분량의 검증을 1개월 안에 끝내야 했습니다. 장비와 인력 의존성이 가장 큰 리스크였습니다.</p></div><div class="block"><div class="label">TPM Action</div><p>디지털·아날로그·품질 업무를 시험 선후관계와 장비 가용성 기준으로 재배치했습니다. 필수 검증과 후속 분석을 구분하고 담당자·체크포인트·의사결정 시점을 명확히 해 병목을 매일 조정했습니다.</p><div class="chips"><span class="chip">Milestone</span><span class="chip">Dependency</span><span class="chip">Resource Planning</span><span class="chip">Cross-functional</span></div></div><div class="block"><div class="label">Outcome</div><p class="result">2개월 분량의 검증을 1개월 내 완료해 고객 납기를 준수했습니다. 이후 반복되는 측정 병목을 줄이기 위한 전담 측정 체계 마련에도 연결했습니다.</p></div></div></article>
 </div></div></section>
 
-<section id="fusa"><div class="wrap"><div class="section-head"><div><p class="kicker">Functional Safety</p><h2>ISO 26262를 문서가 아니라 실행 체계로 다뤘습니다.</h2></div><p class="intro">사내에 기능안전 경험자가 없는 상태에서 회사 최초의 ISO 26262 프로그램을 주관했습니다. 표준을 직접 분석해 안전 라이프사이클을 정의하고, 실제 고객 프로젝트(Ethernet PHY IP)를 Pilot으로 Part 2·3·4·5·8·9를 산출물과 검증으로 전개했습니다.</p></div>
+<section id="fusa"><div class="wrap"><div class="section-head"><div><p class="kicker">Functional Safety</p><h2>ISO 26262를 문서가 아니라 실행 체계로 다뤘습니다.</h2></div><p class="intro">사내에 기능안전 경험자가 없는 상태에서 회사 최초의 ISO 26262 프로그램을 주관했습니다. 반도체 IP를 <strong>SEooC</strong>로 개발하는 전제에 맞춰 라이프사이클을 tailoring하고, 실제 고객 프로젝트(2.5Gbps Ethernet PHY IP · ASIL B)를 Pilot으로 <strong>Part 2 · 5 · 8 · 9</strong>를 산출물과 검증으로 전개했습니다. Part 3·4는 상위 시스템(고객) 영역으로 두고 Assumption of Use로 경계를 정의했습니다.</p></div>
 
 <div class="fsbar">
-  <div><b>ASIL B</b><span>목표 등급 · SEooC 개발</span></div>
-  <div><b>SPFM ≥ 90%</b><span>단일점 고장 지표 목표</span></div>
-  <div><b>LFM ≥ 60%</b><span>잠재 고장 지표 목표</span></div>
-  <div><b>PMHF &lt; 100 FIT</b><span>확률적 고장률 목표</span></div>
+  <div><b>Part 2</b><span>안전 관리 · 계획 · 확인조치</span></div>
+  <div><b>Part 5</b><span>하드웨어 개발 · FMEDA</span></div>
+  <div><b>Part 8</b><span>지원 프로세스 · Tool Qualification</span></div>
+  <div><b>Part 9</b><span>ASIL 지향 안전성 분석</span></div>
 </div>
 
 <div class="fsgrid">
-  <article class="fscard"><div class="no">01 · CONCEPT</div><h3>SEooC 전제와 Tailoring</h3><p>반도체 IP는 최종 아이템이 아니므로 <strong>SEooC</strong>로 개발했습니다. 상위 시스템을 가정해 <strong>Assumption of Use(AoU)</strong>를 직접 정의하고, Item Definition과 HARA를 가정 기반으로 수행한 tailoring 논리를 심사에서 인정받았습니다.</p></article>
-  <article class="fscard"><div class="no">02 · REQUIREMENT</div><h3>안전요구사항 전개와 추적성</h3><p>Safety Goal에서 <strong>FSC/TSC</strong>, 다시 <strong>HRS·HDS</strong>로 요구사항을 단계적으로 전개했습니다. 안전목표 → 안전요구사항 → 검증결과를 잇는 <strong>양방향 추적성 매트릭스</strong>를 구축해 근거를 남겼습니다.</p></article>
-  <article class="fscard"><div class="no">03 · ANALYSIS</div><h3>FMEA · FTA 안전성 분석</h3><p>FMEA로 고장모드를, FTA로 고장경로를 도출했습니다. Minimal Cut Set이 single-order인 블록에서 <strong>단일점 고장</strong>을 식별하고, 면적 영향을 정량 측정해 출력단 <strong>부분 이중화(DMR)</strong>를 설계팀과 합의했습니다.</p></article>
-  <article class="fscard"><div class="no">04 · FMEDA</div><h3>정량 평가와 HW 아키텍처 메트릭</h3><p><strong>SN29500 · IEC TR 62380</strong> 기반 Base Failure Rate에 Part 11의 다이 레벨 고장모드 분포를 매핑했습니다. Permanent와 Transient를 구분해 산정하고 <strong>SPFM·LFM·PMHF</strong>로 목표 충족을 확인했습니다.</p></article>
-  <article class="fscard"><div class="no">05 · SUPPORTING</div><h3>지원 프로세스와 Tool Qualification</h3><p><strong>DIA</strong>(개발협력협약), Configuration·Change Management, Safety Case, Safety Manual을 정비했습니다. Part 8 기준으로 <strong>Software Tool Qualification</strong>(TCL 평가)을 수행해 검증툴의 신뢰성 근거를 확보했습니다.</p></article>
-  <article class="fscard"><div class="no">06 · ASSESSMENT</div><h3>인증기관 심사 대응</h3><p>약 8개월간 <strong>TÜV SÜD Review Protocol</strong> 지적사항을 영역·우선순위·담당자로 분류해 <strong>전건 Close</strong>했습니다. 해외 심사원의 영어 On-site Audit을 수행해 최종 Assessment 단계까지 진행했습니다.</p></article>
+  <article class="fscard"><div class="no">PART 2 · MANAGEMENT</div><h3>안전 관리 체계 수립</h3><p>Project Plan과 <strong>Work Breakdown Structure</strong>로 활동·산출물·R&amp;R·일정을 정의하고, Configuration·Change·Documentation Management Plan과 <strong>Verification Plan</strong>을 세워 개발 전반의 관리 체계를 만들었습니다.</p></article>
+  <article class="fscard"><div class="no">PART 5 · HARDWARE</div><h3>하드웨어 요구사항과 설계 사양</h3><p>Hardware Requirements와 <strong>Hardware Design Specification</strong>을 작성하고 안전 메커니즘을 설계에 반영했습니다. Silicon Proven Report와 Reliability Test Report로 실물 검증 근거를 남겼습니다.</p></article>
+  <article class="fscard"><div class="no">PART 9 · ANALYSIS</div><h3>FMEA · FTA · DFA</h3><p>FMEA로 고장모드를, FTA로 고장경로를, <strong>DFA</strong>로 종속 고장을 분석했습니다. Minimal Cut Set이 single-order인 블록에서 <strong>단일점 고장</strong>을 식별하고, 면적 영향을 정량 측정해 출력단 <strong>부분 이중화(DMR)</strong>를 설계팀과 합의했습니다.</p></article>
+  <article class="fscard"><div class="no">PART 5 · FMEDA</div><h3>정량 평가와 HW 아키텍처 메트릭</h3><p><strong>SN29500 · IEC TR 62380</strong> 기반 Base Failure Rate에 다이 레벨 고장모드 분포를 매핑했습니다. Permanent와 Transient를 구분해 산정하고 <strong>SPFM · LFM · PMHF</strong>로 ASIL B 목표 충족을 확인했습니다.</p></article>
+  <article class="fscard"><div class="no">PART 8 · SUPPORTING</div><h3>지원 프로세스와 Tool Qualification</h3><p>Terms and Definitions, Functional Safety Procedure를 사내 표준으로 정비하고 형상·변경·문서 관리를 운영했습니다. <strong>Calibre · Spectre · Xcelium · Virtuoso</strong> 4종에 대해 <strong>Tool Qualification</strong>(TCL 평가)을 수행했습니다.</p></article>
+  <article class="fscard"><div class="no">SAFETY CASE · AUDIT</div><h3>안전 논증과 인증기관 심사</h3><p><strong>GSN</strong> 기반 Safety Case로 안전 논증을 구성하고 Safety Manual을 발행했습니다. 약 8개월간 <strong>TÜV SÜD Review Protocol</strong> 지적사항을 전건 Close하고, 해외 심사원의 영어 On-site Audit을 수행해 최종 Assessment 단계까지 진행했습니다.</p></article>
 </div>
-<p class="fsnote">* 부품(IP) 레벨 SEooC 기준으로 수행한 활동입니다. 위 지표는 ISO 26262가 정의한 ASIL B 목표값이며, 프로젝트의 실제 산정 결과와 산출물 내용은 고객·회사 기밀이라 공개하지 않습니다.</p>
+<p class="fsnote">* 부품(IP) 레벨 SEooC 기준으로 수행한 활동이며, ASIL B 목표는 SPFM ≥ 90% · LFM ≥ 60% · PMHF &lt; 100 FIT입니다. 프로젝트의 실제 산정 결과와 산출물 내용은 고객·회사 기밀이라 공개하지 않습니다.</p>
 </div></section>
 
 <!-- ==================== SOFTWARE / PRODUCTS ==================== -->
@@ -271,13 +282,13 @@
   <div class="showcase">
     <div class="window">
       <div class="win-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><div class="win-url">qms.internal / dashboard</div></div>
-      <img src="assets/qms-dashboard.jpg" alt="QMS 메인 대시보드 — Quality Management Suite, RPMT·SVIT·CITS·APQP·Spec Center 모듈" loading="lazy">
+      <a class="zoom" href="#lb-qms-dashboard"><img src="assets/qms-dashboard.jpg" alt="QMS 메인 대시보드 — Quality Management Suite, RPMT·SVIT·CITS·APQP·Spec Center 모듈" loading="lazy"></a>
     </div>
     <div class="gallery">
-      <figure><img src="assets/qms-rpmt.jpg" alt="RPMT 프로젝트 관리 화면" loading="lazy"><figcaption>RPMT · 프로젝트 관리</figcaption></figure>
-      <figure><img src="assets/qms-cits.jpg" alt="CITS 고객 이슈 추적 및 SLA 분석" loading="lazy"><figcaption>CITS · 고객 이슈·SLA</figcaption></figure>
-      <figure><img src="assets/qms-apqp.jpg" alt="APQP 단계 게이트 대시보드" loading="lazy"><figcaption>APQP · 단계 게이트</figcaption></figure>
-      <figure><img src="assets/qms-spec.jpg" alt="Spec Center 사내 규격·표준 문서 라이브러리" loading="lazy"><figcaption>Spec Center · 문서</figcaption></figure>
+      <figure><a class="zoom" href="#lb-qms-rpmt"><img src="assets/qms-rpmt.jpg" alt="RPMT 프로젝트 관리 화면" loading="lazy"></a><figcaption>RPMT · 프로젝트 관리</figcaption></figure>
+      <figure><a class="zoom" href="#lb-qms-cits"><img src="assets/qms-cits.jpg" alt="CITS 고객 이슈 추적 및 SLA 분석" loading="lazy"></a><figcaption>CITS · 고객 이슈·SLA</figcaption></figure>
+      <figure><a class="zoom" href="#lb-qms-apqp"><img src="assets/qms-apqp.jpg" alt="APQP 단계 게이트 대시보드" loading="lazy"></a><figcaption>APQP · 단계 게이트</figcaption></figure>
+      <figure><a class="zoom" href="#lb-qms-spec"><img src="assets/qms-spec.jpg" alt="Spec Center 사내 규격·표준 문서 라이브러리" loading="lazy"></a><figcaption>Spec Center · 문서</figcaption></figure>
     </div>
   </div>
 </article>
@@ -287,12 +298,12 @@
   <div class="showcase">
     <div class="window">
       <div class="win-bar dark"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><div class="win-url">fusa-studio / functional safety overview</div></div>
-      <img src="assets/fusa-dashboard.jpg" alt="FuSa Studio 워크스페이스 대시보드 — G1 게이트 준비도, 승인 태스크, 프로젝트 헬스(ASIL B · SEooC)" loading="lazy">
+      <a class="zoom" href="#lb-fusa-dashboard"><img src="assets/fusa-dashboard.jpg" alt="FuSa Studio 워크스페이스 대시보드 — G1 게이트 준비도, 승인 태스크, 프로젝트 헬스(ASIL B · SEooC)" loading="lazy"></a>
     </div>
     <div class="gallery">
-      <figure><img src="assets/fusa-analyze.jpg" alt="Design FMEA — 구조 네트워크와 FMEA 워크시트(S·O·D·RPN·AP)" loading="lazy"><figcaption>Safety Analysis · FMEA</figcaption></figure>
-      <figure><img src="assets/fusa-process.jpg" alt="라이프사이클 맵 — 게이트별 산출물과 증거 흐름" loading="lazy"><figcaption>Lifecycle Map · 게이트</figcaption></figure>
-      <figure><img src="assets/fusa-workproducts.jpg" alt="Work Product Matrix — ISO 26262 Part별 필수 산출물 매핑" loading="lazy"><figcaption>Work Product Matrix</figcaption></figure>
+      <figure><a class="zoom" href="#lb-fusa-analyze"><img src="assets/fusa-analyze.jpg" alt="Design FMEA — 구조 네트워크와 FMEA 워크시트(S·O·D·RPN·AP)" loading="lazy"></a><figcaption>Safety Analysis · FMEA</figcaption></figure>
+      <figure><a class="zoom" href="#lb-fusa-process"><img src="assets/fusa-process.jpg" alt="라이프사이클 맵 — 게이트별 산출물과 증거 흐름" loading="lazy"></a><figcaption>Lifecycle Map · 게이트</figcaption></figure>
+      <figure><a class="zoom" href="#lb-fusa-workproducts"><img src="assets/fusa-workproducts.jpg" alt="Work Product Matrix — ISO 26262 Part별 필수 산출물 매핑" loading="lazy"></a><figcaption>Work Product Matrix</figcaption></figure>
     </div>
   </div>
   <div class="product-info">
@@ -328,12 +339,12 @@
   <div class="showcase">
     <div class="window">
       <div class="win-bar dark"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><div class="win-url">dqv-hub / dashboard</div></div>
-      <img src="assets/dqv-dashboard.jpg" alt="DQV Sign-off Hub 대시보드 — Pass/Fail/Running/Errors 현황과 IP 인스턴스 등록" loading="lazy">
+      <a class="zoom" href="#lb-dqv-dashboard"><img src="assets/dqv-dashboard.jpg" alt="DQV Sign-off Hub 대시보드 — Pass/Fail/Running/Errors 현황과 IP 인스턴스 등록" loading="lazy"></a>
     </div>
     <div class="gallery">
-      <figure><img src="assets/dqv-rules.jpg" alt="Rule Decks — 179개 필수 룰과 Checker 로직 매핑 테이블" loading="lazy"><figcaption>Rule Deck · 179 rules</figcaption></figure>
-      <figure><img src="assets/dqv-aqua.jpg" alt="AQUA vs DQV 비교 — 파운드리 체크리스트와 자동 검증 룰 추적 매트릭스" loading="lazy"><figcaption>Traceability Matrix</figcaption></figure>
-      <figure><img src="assets/dqv-report.jpg" alt="Sign-off Report — Pass/Fail 요약과 Front-End·Back-End 검증 결과" loading="lazy"><figcaption>Sign-off Report</figcaption></figure>
+      <figure><a class="zoom" href="#lb-dqv-rules"><img src="assets/dqv-rules.jpg" alt="Rule Decks — 179개 필수 룰과 Checker 로직 매핑 테이블" loading="lazy"></a><figcaption>Rule Deck · 179 rules</figcaption></figure>
+      <figure><a class="zoom" href="#lb-dqv-aqua"><img src="assets/dqv-aqua.jpg" alt="AQUA vs DQV 비교 — 파운드리 체크리스트와 자동 검증 룰 추적 매트릭스" loading="lazy"></a><figcaption>Traceability Matrix</figcaption></figure>
+      <figure><a class="zoom" href="#lb-dqv-report"><img src="assets/dqv-report.jpg" alt="Sign-off Report — Pass/Fail 요약과 Front-End·Back-End 검증 결과" loading="lazy"></a><figcaption>Sign-off Report</figcaption></figure>
     </div>
   </div>
 </article>
@@ -350,4 +361,18 @@
 
 <section class="contact" id="contact"><div class="wrap inner"><div><h2>기술을 이해하고, 프로젝트를 앞으로 움직입니다.</h2><p>42dot · Technical Product Manager (Software) · Pangyo</p></div><div class="contact-links"><a href="mailto:rillerosion@gmail.com">rillerosion@gmail.com</a><a href="tel:+821095205112">010-9520-5112</a></div></div></section>
 <footer><div class="wrap">© 2026 Lee Sang-Won · Technical Product Manager Portfolio</div></footer>
+
+<div class="lightbox" id="lb-qms-dashboard"><a class="lb-close" href="#_" aria-label="닫기"></a><img src="assets/qms-dashboard.jpg" alt="QMS 메인 대시보드 — Quality Management Suite, RPMT·SVIT·CITS·APQP·Spec Center 모듈"></div>
+<div class="lightbox" id="lb-qms-rpmt"><a class="lb-close" href="#_" aria-label="닫기"></a><img src="assets/qms-rpmt.jpg" alt="RPMT 프로젝트 관리 화면"></div>
+<div class="lightbox" id="lb-qms-cits"><a class="lb-close" href="#_" aria-label="닫기"></a><img src="assets/qms-cits.jpg" alt="CITS 고객 이슈 추적 및 SLA 분석"></div>
+<div class="lightbox" id="lb-qms-apqp"><a class="lb-close" href="#_" aria-label="닫기"></a><img src="assets/qms-apqp.jpg" alt="APQP 단계 게이트 대시보드"></div>
+<div class="lightbox" id="lb-qms-spec"><a class="lb-close" href="#_" aria-label="닫기"></a><img src="assets/qms-spec.jpg" alt="Spec Center 사내 규격·표준 문서 라이브러리"></div>
+<div class="lightbox" id="lb-fusa-dashboard"><a class="lb-close" href="#_" aria-label="닫기"></a><img src="assets/fusa-dashboard.jpg" alt="FuSa Studio 워크스페이스 대시보드 — G1 게이트 준비도, 승인 태스크, 프로젝트 헬스(ASIL B · SEooC)"></div>
+<div class="lightbox" id="lb-fusa-analyze"><a class="lb-close" href="#_" aria-label="닫기"></a><img src="assets/fusa-analyze.jpg" alt="Design FMEA — 구조 네트워크와 FMEA 워크시트(S·O·D·RPN·AP)"></div>
+<div class="lightbox" id="lb-fusa-process"><a class="lb-close" href="#_" aria-label="닫기"></a><img src="assets/fusa-process.jpg" alt="라이프사이클 맵 — 게이트별 산출물과 증거 흐름"></div>
+<div class="lightbox" id="lb-fusa-workproducts"><a class="lb-close" href="#_" aria-label="닫기"></a><img src="assets/fusa-workproducts.jpg" alt="Work Product Matrix — ISO 26262 Part별 필수 산출물 매핑"></div>
+<div class="lightbox" id="lb-dqv-dashboard"><a class="lb-close" href="#_" aria-label="닫기"></a><img src="assets/dqv-dashboard.jpg" alt="DQV Sign-off Hub 대시보드 — Pass/Fail/Running/Errors 현황과 IP 인스턴스 등록"></div>
+<div class="lightbox" id="lb-dqv-rules"><a class="lb-close" href="#_" aria-label="닫기"></a><img src="assets/dqv-rules.jpg" alt="Rule Decks — 179개 필수 룰과 Checker 로직 매핑 테이블"></div>
+<div class="lightbox" id="lb-dqv-aqua"><a class="lb-close" href="#_" aria-label="닫기"></a><img src="assets/dqv-aqua.jpg" alt="AQUA vs DQV 비교 — 파운드리 체크리스트와 자동 검증 룰 추적 매트릭스"></div>
+<div class="lightbox" id="lb-dqv-report"><a class="lb-close" href="#_" aria-label="닫기"></a><img src="assets/dqv-report.jpg" alt="Sign-off Report — Pass/Fail 요약과 Front-End·Back-End 검증 결과"></div>
 </body></html>
